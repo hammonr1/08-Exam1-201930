@@ -3,8 +3,8 @@ Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Ruth Hammond.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import testing_helper
 import time
@@ -17,7 +17,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the doc-string for the  sum_of_digits  and   is_prime
+# DONE: 2.  READ the doc-string for the  sum_of_digits  and   is_prime
 # functions defined below.  They are the same as what you have seen before.
 # After you UNDERSTAND the doc-string (JUST the doc-string, NOT the code),
 # ASKING QUESTIONS AS NEEDED, change the above _TODO_ to DONE.
@@ -170,6 +170,17 @@ def run_test_problem3a():
 
 
 def problem3a(a, b):
+    count = 0
+    for i in range((a**b)-a):
+        if is_prime(a+i) is True:
+            if is_prime(sum_of_digits(a+i)) is True:
+                count = count + a+i
+            else:
+                count = count + 0
+        else:
+            count = count + 0
+    return count
+
     """
     What comes in:  Positive integers a and b, with a >= 2.
     What goes out:
@@ -190,7 +201,7 @@ def problem3a(a, b):
       -- problem3a(8, 2) = 11 + 23 + 29 + 41 + 43 + 47 + 61  (which is 255)
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -277,7 +288,7 @@ def problem3b(m, x):
            which is approximately 12.020144157845959.
      """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DISCARDED: 4. Implement and test this function.
     #          Tests have been written for you (above).
     ###########################################################################
     ###########################################################################

@@ -3,11 +3,11 @@ Exam 1, problem 4.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Ruth Hammond.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
-
+import math as m
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -53,6 +53,30 @@ def run_test_problem4():
 
 
 def problem4(point1, point2, n, window):
+    start = point1
+    end = point2
+    point1.attach_to(window)
+    point2.attach_to(window)
+    dx = point2.x-point1.x
+    dy = point2.y-point1.y
+    p = (2 * n) + 1
+
+
+    for i in range((p)):
+        point = rg.Point(point1.x + i*(dx/((p))),point1.y + i*(dy/((p))))
+        if i == 0:
+            point.fill_color = point1.fill_color
+        elif i == p:
+            point.fill_color= point2.fill_color
+        elif i < (p/2):
+            if(i != 0):
+                point.fill_color = point2.fill_color
+        else:
+                point.fill_color = point1.fill_color
+        point.attach_to(window)
+        window.render()
+
+
     """
     See   problem4_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
