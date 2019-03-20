@@ -3,13 +3,13 @@ Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Ruth Hammond.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 # -----------------------------------------------------------------------------
-# TODO: 2. Right-click on the  src  folder and
+# DONE: 2. Right-click on the  src  folder and
 #              Mark Directory as ... Sources Root,
 #          if you have not already done so.
 # -----------------------------------------------------------------------------
@@ -81,6 +81,30 @@ def run_test_problem1():
 
 
 def problem1(circle, rectangle, color, length, window):
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    window.render()
+
+    cpoint = circle.center
+    rpoint = rectangle.get_center()
+    start = cpoint
+    end = rpoint
+    line = rg.Line(cpoint,rpoint)
+    line.color = color
+    line.thickness = circle.outline_thickness
+    line.attach_to(window)
+    window.render()
+
+    midpoint = line.get_midpoint()
+    vstart = rg.Point(midpoint.x,midpoint.y -(length/2))
+    vend = rg.Point(midpoint.x,midpoint.y+(length/2))
+    vline = rg.Line(vstart,vend)
+    vline.color = circle.fill_color
+    vline.thickness = circle.outline_thickness + rectangle.outline_thickness
+    vline.attach_to(window)
+    window.render()
+
+
     """
     See   problem1_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -118,7 +142,7 @@ def problem1(circle, rectangle, color, length, window):
       :type window:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # DONE: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
 
